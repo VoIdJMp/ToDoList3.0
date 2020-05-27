@@ -73,7 +73,6 @@ export class TaskTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.httpService.getDataOfTasks().subscribe( (data: any) => {
-      console.log(data);
       this.dataOfUser = data;
       this.myUserId = JSON.parse(window.localStorage.getItem('login_info')).id;
       for (let i of data) {
