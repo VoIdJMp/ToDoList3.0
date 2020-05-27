@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a routerLink="/mytasks" class="fas fa-arrow-left" style = "font-size: 5vh;" id = "backPage"></a>
+    <span style = "margin-left: 20px;">ToDoList</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <mat-card class="example-card">
+      <ng-template matStepLabel>Add your tasks today)</ng-template>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Add Task</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="" [format]="24" #timeForm1></ngx-timepicker-field>
+        </div>
+        <div class="ngx-timepicker-field-example">
+          <ngx-timepicker-field [defaultTime]="" [format]="24" #timeForm2></ngx-timepicker-field>
+        </div>
+      </mat-card-content>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Text" #desc></textarea>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click) = "AddTaskPlan(timeForm1, timeForm2, desc)">Add</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-list>
+      <div class="card text-center">
+        <mat-list-item *ngFor = "let i of tasksData">
+          <div class="card-header">{{i.start_time}}</div>
+          <div class="card-body">{{i.desc}}</div>
+          <div class="card-footer">{{i.end_time}}</div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </div>
+    </mat-list>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Add title your tasks</ng-template>
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Title Tasks" #titleText required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Finish</ng-template>
+    <div>
+      <button mat-button (click)="AddToDataBase(titleText.value)">Finish</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

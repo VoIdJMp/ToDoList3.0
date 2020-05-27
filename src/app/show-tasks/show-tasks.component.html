@@ -1,0 +1,100 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="false" style = "height: 100%;">
+  <mat-drawer #drawer [mode]="'side'" [position] = "'start'">
+    <nav id="sidebar" class="sidebar-wrapper">
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <a href="#">ToDoList bar</a>
+        </div>
+        <div class="sidebar-header">
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                 alt="User picture">
+          </div>
+          <div class="user-info">
+          <span class="user-name">
+            <strong>{{userName}}</strong>
+          </span>
+            <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Online</span>
+          </span>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li class="header-menu">
+              <span>General</span>
+            </li>
+            <li class="sidebar-dropdown">
+              <a routerLink="/addtasks">
+                <i class="fa fa-tachometer-alt"></i>
+                <span>Add or reset tasks</span>
+              </a>
+            </li>
+            <li class="sidebar-dropdown">
+              <a routerLink="/product">
+                <i class="fa fa-shopping-cart"></i>
+                <span>Product Update</span>
+              </a>
+            </li>
+            <li class="header-menu">
+              <span>Extra</span>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-book"></i>
+                <span>Documentation</span>
+                <span class="badge badge-pill badge-primary">Beta</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <a href="#">
+          <i class="fa fa-power-off" (click) = "exitUser()"></i>
+        </a>
+      </div>
+    </nav>
+  </mat-drawer>
+  <mat-drawer #drawer1 [mode]="'side'" [position] = "'end'" id = "drw1">
+    <h4 style = "margin: 15px;">My tasks information</h4>
+    <hr>
+    <ul style = "list-style-type: none;">
+      <li *ngFor = "let i of TasksOfUser; let j = index" style = "margin-left: -50px;">
+        <div class="border-card" style = "width: 50vh;"> <!-- border-color: #4CAF50;-->
+          <div class="card-type-icon with-border">{{j + 1}}</div>
+          <div class="content-wrapper">
+            <div class="label-group fixed">
+              <p class="title">Description</p>
+              <p class="caption">{{i.desc_ex}}</p>
+            </div>
+            <div class="min-gap"></div>
+            <div class="label-group">
+              <p class="title">Start time</p>
+              <p class="caption">{{i.start_time}}</p>
+            </div>
+            <div class="min-gap"></div>
+            <div class="label-group">
+              <p class="title">End time</p>
+              <p class="caption">{{i.end_time}}</p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+          <div class="container1" #curDiv (click)="goW3(curDiv, drawer)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        <span style = "margin-left: 20px;">ToDoList</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <app-task-table [drawer1] = "drawer1" (onChanger) = "getTasksList($event)"></app-task-table>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,9 @@
+#backPage {
+  color: white;
+  text-decoration: none;
+}
+
+#backPage:hover {
+  cursor: pointer;
+  font-style: inherit;
+}

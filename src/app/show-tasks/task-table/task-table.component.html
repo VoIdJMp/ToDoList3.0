@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="tile">
+        <div class="wrapper">
+          <div class="header">{{curTimeInfo.curDesc}}</div>
+          <div class="banner-img">
+            <img src="{{curTimeInfo.curPhoto}}" alt="Image 1" width = "640" height = "360">
+          </div>
+          <div class="dates">
+            <div class="start">
+              <strong>STARTS</strong> {{curTimeInfo.curStartTime}}
+              <span></span>
+            </div>
+            <div class="ends">
+              <strong>ENDS</strong> {{curTimeInfo.curEndTime}}
+            </div>
+          </div>
+          <div class="stats">
+            <div>
+              <strong>HOUR</strong>{{timeWait.hour}}
+            </div>
+            <div>
+              <strong>MINUT</strong>{{timeWait.minutes}}
+            </div>
+            <div>
+              <strong>SECONDS</strong>{{timeWait.seconds}}
+            </div>
+          </div>
+          <div class="footer">
+            <button class="btn btn-success" (click) = "showMyTasks()">Show others tasks</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

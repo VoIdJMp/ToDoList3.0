@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "admin",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "name": "admin",
+      "password": "123"
+    },
+    {
+      "id": 3,
+      "name": "Alex",
+      "password": "123"
+    },
+    {
+      "id": 4,
+      "name": "Bob",
+      "password": "123"
+    },
+    {
+      "id": 5,
+      "name": "Adam",
+      "password": "123"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "desc": "Hello",
+      "start_time": "9:30",
+      "end_time": "9:30",
+      "date": "2020.05.07"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "desc": "Task of Admin",
+      "start_time": "03:00",
+      "end_time": "04:00",
+      "date": "8.4.2020",
+      "titles": "Admin Title"
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+      "desc": "Task 2 of Admin",
+      "start_time": "03:00",
+      "end_time": "04:00",
+      "date": "8.4.2020",
+      "titles": "Task 2"
+    }
+  ]
+}

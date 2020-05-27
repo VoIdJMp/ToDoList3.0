@@ -1,0 +1,36 @@
+<div class="main">
+  <div class="container">
+      <div class="middle">
+        <div id="login">
+          <form [formGroup]="" #lgn>
+            <fieldset class="clearfix">
+              <p ><span class="fa fa-user"></span><input type="text"  placeholder="Username" required #userName></p>
+              <p><span class="fa fa-lock"></span><input type="password"  placeholder="Password" required #pass></p>
+              <div>
+                <span style="width:50%; text-align:right;  display: inline-block;"><button type="button" class="btn btn-primary" (click) = "checkLoginData(userName, pass)">Sign In</button></span>
+                <span style="width:50%; text-align:right;  display: inline-block;"><button type="button" class="btn btn-primary" (click) = "show_reg(reg, lgn)">Sign Up</button></span>
+              </div>
+            </fieldset>
+            <div class="clearfix"></div>
+          </form>
+          <div class="clearfix"></div>
+          <form [formGroup]="" #reg style = "display: none;">
+            <fieldset class="clearfix">
+              <p><span class="fa fa-user"></span><input type="text"  placeholder="Username" required #getUserName></p>
+              <p><span class="fa fa-lock"></span><input type="password"  placeholder="Password" required #getPassword1></p>
+              <p><span class="fa fa-lock"></span><input type="password"  placeholder="Confirm Password" required #getPassword2></p>
+              <div>
+                <span style="width:50%; text-align:right;  display: inline-block;"><button type="button" class="btn btn-primary" (click) = "regUser(getUserName, getPassword1, getPassword2, lgn, reg)">Register</button></span>
+              </div>
+            </fieldset>
+            <div class="clearfix"></div>
+          </form>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="logo">ToDoList
+          <div class="clearfix"></div>
+        </div>
+      </div>
+  </div>
+</div>
