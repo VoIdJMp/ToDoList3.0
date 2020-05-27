@@ -45,6 +45,9 @@ export class LoginCompComponent implements OnInit {
       loginForm.style.display = 'block';
       regForm.style.display = 'none';
       getUserName.value = ''; getPassword1.value = ''; getPassword2.value = '';
+      this.httpService.getDataOfUsers().subscribe( (data1: any) => {
+        this.userData = data1;
+      });
     });
   }
 
