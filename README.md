@@ -16,4 +16,4 @@ Info of your task:
 ![alt text](screenshots/5.PNG)
 
 Your tasks information:
-![alt text](screenshots/5.PNG)
+![alt text](screenshots/6.PNG)
